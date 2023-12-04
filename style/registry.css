@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Chakra Petch";
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-position: center;
+  overflow: hidden;
+  background-image: linear-gradient(#3e7088, #89bfd6);
+  background-size: cover;
+  background-position: 65%;
+  box-sizing: border-box;
+}
+.hero .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.hero .logo img {
+  width: 200px;
+}
+.login-page {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .login-page .login-form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 100px;
+  background-color: rgb(97, 97, 97, 0.8);
+}
+.hero .login-page .login-form input {
+  padding: 15px 100px 15px 15px;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+.hero .login-page .login-form input ~ :nth-child(2) {
+  margin-bottom: 20px;
+}
+.hero .login-page .login-form h4 {
+  color: white;
+  text-align: start;
+  line-height: 30px;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+}
+
+.hero .login-page .login-form input[type="text"]:focus,
+.hero .login-page .login-form input[type="email"]:focus,
+.hero .login-page .login-form input[type="password"]:focus,
+.hero .login-page .login-form button:focus {
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
+  outline: 1px solid rgb(255, 255, 255);
+}
+.hero .login-page .login-form input {
+  font-size: 1rem;
+  outline: 1px solid #87cfff;
+  border: 1px solid #87cfff;
+  background-color: rgba(135, 207, 255, 0.2);
+  color: #87cfff;
+}
+.hero .login-page .login-form ::-webkit-input-placeholder {
+  color: #87cfff;
+}
+.hero .login-page .login-form button {
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  background-color: rgb(42, 34, 99);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(42, 34, 99);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.hero .login-page .login-form button:hover {
+  background-color: rgb(68, 64, 192);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(68, 64, 192);
+}
+.hero .login-page .login-form .message button {
+  padding: 10px 30px;
+}
+.hero .login-page .login-form hr {
+  margin-bottom: 15px;
+}
+.message {
+  align-self: flex-end;
+  color: white;
+}
+.message button {
+  margin-left: 15px;
+}
+@media screen and (max-width: 768px) {
+  .login-page {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .hero .login-page .login-form {
+    width: 90vmin;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 25px;
+    background-color: rgb(97, 97, 97, 0.8);
+    box-sizing: border-box;
+  }
+  .hero .login-page .login-form button {
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .hero .login-page .login-form input {
+    box-sizing: border-box;
+    padding: 9px 100px 9px 10px;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+  }
+  .hero .login-page .login-form hr {
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
+  .message {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .message button {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 10996px) {
+}

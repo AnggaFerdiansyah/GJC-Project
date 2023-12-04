@@ -1,0 +1,458 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+}
+
+.logo h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(255, 116, 139);
+  cursor: default;
+}
+body {
+  overflow-x: hidden;
+}
+/* NAV */
+nav {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+nav ul {
+  display: flex;
+  letter-spacing: 0.7px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(255, 116, 139);
+}
+nav ul li a:hover {
+  text-decoration: none;
+  color: rgb(196, 0, 153);
+}
+
+nav .logo {
+  white-space: nowrap;
+  display: flex;
+  width: 50vw;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  font-style: italic;
+  padding-left: 5vw;
+}
+nav .logo h1:nth-child(2) {
+  font-weight: lighter;
+}
+nav .logo h1:nth-child(1) {
+  font-weight: bold;
+}
+nav .logo h1 {
+  font-size: 3.2rem;
+  color: #3e7088;
+}
+nav .navmenu {
+  padding-right: 100px;
+  white-space: nowrap;
+  display: flex;
+  width: 50vw;
+  box-sizing: border-box;
+  justify-content: center;
+}
+nav .navmenu li {
+  padding: 0 2vw;
+}
+nav .navmenu ul li a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: rgb(31, 31, 31);
+  text-transform: uppercase;
+}
+
+nav .navmenu ul li a {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(54, 54, 54);
+
+  &::after {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 3px;
+    transition: all 0.2s linear;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+      background-color: #3e7088;
+    }
+  }
+}
+
+nav .navmenu ul li a:hover {
+  color: #3e7088;
+  transform: scaleX(1);
+}
+nav .navmenu a img {
+  display: none;
+  border: none;
+  width: 200px;
+  height: 200px;
+  padding-bottom: 30px;
+}
+
+/* HAMBURGER */
+.nav_toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  position: relative;
+}
+.nav_toggle input {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  opacity: 0.5;
+  left: -6.5px;
+  top: -5px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.nav_toggle span {
+  display: none;
+  width: 27px;
+  height: 3px;
+  background-color: rgb(255, 116, 139);
+  border-radius: 3px;
+  transition: all 0.5s;
+  transform: rotate(0deg);
+}
+
+/* HAMBURGER ANIMATION */
+.nav_toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.nav_toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(3px, -4px);
+}
+.nav_toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+.nav_toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(3px, 4px);
+}
+.nav_toggle input:checked ~ span:nth-child(3) {
+  translate: -150%;
+}
+
+/* Account Toggle */
+.account_toggle {
+  display: none;
+  width: 30px;
+  height: 30px;
+  justify-content: flex-end;
+}
+.account_toggle input {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.account_toggle img {
+  width: 30px;
+  filter: invert(61%) sepia(67%) saturate(1073%) hue-rotate(305deg) brightness(99%) contrast(106%);
+}
+
+/* NAV Media Query */
+
+@media screen and (max-width: 1024px) {
+  nav .navmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.4s;
+  }
+  nav .navmenu ul {
+    display: flex;
+    box-sizing: border-box;
+    height: 40vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  nav .navmenu ul li a {
+    &::after {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      content: "";
+      width: 0;
+      height: 3px;
+      transition: all 0.2s linear;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+        background-color: #3e7088;
+      }
+    }
+  }
+
+  nav .navmenu ul li a:hover {
+    color: #3e7088;
+    transform: scaleX(1);
+  }
+  nav .navmenu.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+    z-index: 2;
+  }
+  nav .navmenu.active ~ .nav_toggle {
+    z-index: 5;
+  }
+
+  nav .navmenu a img {
+    display: block;
+  }
+
+  nav .nav_toggle span {
+    display: block;
+  }
+  nav .logo {
+    white-space: nowrap;
+  }
+
+  nav .nav_toggle {
+    padding-right: 20px;
+    overflow: hidden;
+  }
+  section .hero_image .hero_text h1 {
+    font-size: 5rem !important;
+  }
+  section .hero_image .hero_text h3 {
+    font-size: 2rem !important;
+  }
+  section .hero_image .hero_text h4 {
+    font-size: 1.4rem !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  nav .logo {
+    padding-left: 20px;
+  }
+  nav .nav_toggle {
+    padding-right: 20px;
+  }
+  nav .account_toggle {
+    order: 3;
+    padding: 0;
+  }
+  section .hero_image .hero_text h1 {
+    font-size: 3rem !important;
+  }
+  section .hero_image .hero_text h3 {
+    font-size: 1.2rem !important;
+  }
+  section .hero_image .hero_text h4 {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  nav .logo {
+    width: 35vw;
+  }
+  nav .navmenu {
+    width: 65vw;
+  }
+}
+@media screen and (max-width: 1440px) {
+  nav .navmenu li {
+    padding: 0 30px;
+  }
+  nav .logo {
+    width: 40vw;
+  }
+  .nav .navmenu {
+    width: 60vw;
+  }
+
+  nav .accountmenu ul {
+    width: 310px;
+  }
+  nav .accountmenu ul li:nth-child(2) a {
+    width: 130px;
+  }
+  nav .accountmenu ul li:nth-child(1) a {
+    width: 170px;
+  }
+  section .heroimage .hero_text {
+    padding-top: 100px !important;
+  }
+  section .heroimage .maintext {
+    margin: 100px 0 100px 4vw !important;
+  }
+}
+
+/* HERO IMAGE */
+
+section .heroimage {
+  display: flex;
+  box-sizing: border-box;
+  height: 100vh;
+  background-image: linear-gradient(#3e7088, #89bfd6);
+  overflow: hidden;
+}
+
+/* MAIN TEXT */
+section .heroimage .maintext {
+  margin: auto 0 auto 4vw;
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  padding: 20px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+section .heroimage .maintext hr {
+  background-color: white;
+  margin: 50px 0;
+}
+section .heroimage .maintext h1,
+h2,
+h3,
+h4 {
+  line-height: 1.5em;
+  color: white;
+}
+section .heroimage .maintext h1 {
+  font-size: 8rem;
+}
+section .heroimage .maintext h3 {
+  font-weight: lighter;
+  font-size: 2rem;
+  text-align: justify;
+}
+section .heroimage .maintext h4 {
+  font-weight: lighter;
+  margin: 50px 0;
+  font-size: 1.7rem;
+  text-align: justify;
+}
+section .heroimage .maintext button {
+  width: 250px;
+  padding: 10px;
+  font-size: 2rem;
+  border-radius: 20px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-weight: bold;
+  color: #3e7088;
+}
+
+/* MAIN IMAGE */
+section .heroimage .mainimage {
+  margin: auto 0 auto 4vw;
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+section .heroimage .mainimage img {
+  width: 20vw;
+}
+
+/* LEARN MORE */
+.learnmore {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(#89bfd6, #3e7088);
+}
+
+/* ABOUT */
+
+.about {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(#3e7088, #89bfd6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .community {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: justify;
+  color: white;
+  width: 20vw;
+}
+.about .community h1 {
+  font-size: 3rem;
+}
+.about .community p {
+  line-height: 1.5rem;
+  padding: 20px 0;
+}
+
+.about .community a {
+  border: 2px solid white;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+}
+.about .community a i {
+  color: white;
+  padding-right: 10px;
+}
+.about .community a:hover {
+  background-color: white;
+  color: #3e7088;
+}
+.about .community a:hover i {
+  color: #3e7088;
+}
